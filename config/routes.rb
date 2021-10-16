@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       get :filter
     end
   end
+  
   resources :categoria
   devise_for :users
   resources :proyectos
