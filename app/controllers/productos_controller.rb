@@ -1,7 +1,7 @@
 class ProductosController < ApplicationController
   before_action :set_producto, only: [:show, :edit, :update, :destroy]
 
-  layout 'admin', except: [:filter]
+  layout 'admin', except: [:filter, :comprar]
 
   def initialize
     super 
@@ -68,6 +68,11 @@ class ProductosController < ApplicationController
       format.html { redirect_to productos_url, notice: 'Producto was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  
+  def comprar
+    @producto = Producto.find(params[:id])
+    
   end
 
   private

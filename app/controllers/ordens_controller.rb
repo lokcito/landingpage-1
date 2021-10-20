@@ -8,6 +8,11 @@ class OrdensController < ApplicationController
     @ordens = Orden.all
   end
 
+  def carrito
+    @qty = params[:cantidad]
+    @producto_id = params[:producto_id]
+
+  end
   # GET /ordens/1
   # GET /ordens/1.json
   def show
