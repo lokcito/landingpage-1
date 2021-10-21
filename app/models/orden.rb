@@ -10,7 +10,7 @@ class Orden < ApplicationRecord
       return self.proceso
     end
   end
-  def entrega
+  def entrega_text
     if self.entrega.year == 2016 and 
       self.entrega.month == 10 and 
       self.entrega.day == 30
