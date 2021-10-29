@@ -26,20 +26,24 @@ Producto.create([{
   nombre: "Granolas con miel",
   descripcion: "Aqui una descripcion",
   imagen: "https://i.imgur.com/6eOZcne.png",
+  precio: 12,
   categorium_id: Categorium.first.id
 }, {
   nombre: "Granolas con chocolate",
   descripcion: "Aqui una descripcion",
   imagen: "https://i.imgur.com/Z7mMWrM.jpg",
+  precio: 14,
   categorium_id: Categorium.where(nombre: "Frutos Secos").first.id
 }, {
   nombre: "Granolas con chocolate",
   descripcion: "Aqui una descripcion",
   imagen: "https://i.imgur.com/utkCETu.jpg",
+  precio: 16,
   categorium_id: Categorium.last.id
 }, {
   nombre: "Galletas integrales",
   descripcion: "Aqui una descripcion",
   imagen: "https://i.imgur.com/jMTNk9O.jpg",
+  precio: 17,
   categorium_id: Categorium.last.id
 }])
