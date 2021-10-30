@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  
+  #######
   resources :rol_usuarios
   resources :rols
+  ###
   resources :orden_entregas
   resources :orden_productos
+  ###
   resources :orden_proyectos
   resources :ordens do 
     collection do 
@@ -25,6 +27,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :proyectos
   root "landpage#index"
+  get 'admin/users', to: "landpage#users"
+  get "admin/users/:id/show", to: "landpage#users_show"
+
 
   get 'landpage/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
