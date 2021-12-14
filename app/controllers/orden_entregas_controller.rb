@@ -24,6 +24,20 @@ class OrdenEntregasController < ApplicationController
   # POST /orden_entregas
   # POST /orden_entregas.json
   def create
+    oe = OrdenEntrega.new
+    oe.orden_id = params[:orden_id]
+    oe.fecha = params[:fecha]
+    oe.instrucciones = params[:instrucciones]
+    oe.direccion = params[:direccion]
+    oe.save
+    
+    orden = Orden.find(params[:orden_id])
+    orden.proceso = Time.zone.now
+    orden.save
+
+    redirect_to "/ordens/confirmar?confirmado=#{orden.id}"
+    return 
+    
     @orden_entrega = OrdenEntrega.new(orden_entrega_params)
 
     respond_to do |format|

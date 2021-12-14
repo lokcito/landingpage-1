@@ -4,13 +4,19 @@ Rails.application.routes.draw do
   resources :rols
   ###
   resources :orden_entregas
-  resources :orden_productos
+  resources :orden_productos do 
+    member do 
+      put :update_cantidad
+      get :delete_item
+    end
+  end
   ###
   resources :orden_proyectos
   resources :ordens do 
     collection do 
       post :carrito
       get :carrito
+      get :confirmar
     end
   end
   resources :clientes

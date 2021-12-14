@@ -61,6 +61,28 @@ class OrdenProductosController < ApplicationController
     end
   end
 
+  def delete_item
+    op = OrdenProducto.find(params[:id])
+    op.destroy
+    redirect_to "/ordens/carrito", 
+      flash: {notice: "Producto quitado del carrito."}
+  end
+
+  def update_cantidad
+    op = OrdenProducto.find(params[:id])
+    op.cantidad = params[:cantidad]
+    if op.valid?
+      op.save
+      redirect_to "/ordens/carrito", flash: {notice: "Cantidad actualizada."}
+    else
+      redirect_to "/ordens/carrito", 
+        flash: {alert: op.
+          errors.full_messages.join("<br>")}
+    end
+    
+    return
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_orden_producto
